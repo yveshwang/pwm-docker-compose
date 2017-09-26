@@ -19,9 +19,11 @@ Getting started
 ===============
 As mentioned, this should be as easy and as painless to get going as possible.
 
-step 1: `docker-compose up`
-step 2: configure LDAP a little by going to [https://localhost:6443/][https://localhost:6443/], use the default `cn=admin,dc=example,dc=org` with password as `admin` 
-step 3: configure PWM by going to [http://localhost:8080/][http://localhost:8080/]
+1. `docker-compose up`
+
+2. configure LDAP a little by going to [https://localhost:6443/][https://localhost:6443/], use the default `cn=admin,dc=example,dc=org` with password as `admin` 
+
+3. configure PWM by going to [http://localhost:8080/][http://localhost:8080/]
 
 Only 3 steps?
 =============
