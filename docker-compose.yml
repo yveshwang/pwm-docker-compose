@@ -1,0 +1,37 @@
+# Yves Hwang
+# 26.09.2016
+
+version: '2'
+
+services:
+    openldap:
+        image: osixia/openldap:1.1.9
+        ports:
+            - "389:389"
+            - "636:636"
+        expose:
+            - "636"
+            - "389"
+        environment:
+            - LDAP_TLS=false
+    phpldapadmin:
+        image: osixia/phpldapadmin:0.7.0
+        ports:
+            - "6443:443"
+        expose:
+            - "443"
+        links:
+            - openldap
+        environment:
+            - PHPLDAPADMIN_LDAP_HOSTS=openldap
+            - PHPLDAPADMIN_LDAP_CLIENT_TLS=false
+    pwm:
+        image: fjudith/pwm:latest
+        ports:
+            - "8080:8080"
+        expose:
+            - "8080"
+        links:
+            - openldap
+            - phpldapadmin
+    
